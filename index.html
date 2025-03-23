@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Product Showcase</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <div class="wrapper">
+        <div class="card">
+            <input type="checkbox" id="card1" class="more">
+       
+            <div class="content">
+                
+                <div class="front" style="background-image: url(images/MSI-background.jpg);">
+                    
+                    <div class="inner">
+                        <label for="card1" aria-hidden="true">
+                            <img for="card3" src="images/MSI.png" alt="MSI">
+                        </label>
+                        <h2>Laptop</h2>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="back">
+                    <div class="inner">
+                        <div class="info">
+                            <div class="icon">
+                                <i class="fa-solid fa-microchip"></i>
+                                <span>Core i7</span>
+                            </div>
+                        </div>
+                        <div class="info">
+                            <div class="icon">
+                                <i class="fa-solid fa-memory"></i>
+                                <span>16GB</span>
+                            </div>
+                        </div>
+                        <div class="info">
+                            <div class="icon">
+                                <i class="fa-solid fa-hard-drive"></i>
+                                <span>128 GB</span>
+                            </div>
+                        </div>
+                        <div class="info">
+                            <div class="icon">
+                                <i class="fa-solid fa-display"></i>
+                                <span>4K</span>
+                            </div>
+                        </div>
+                        <div class="description">
+                            <h2>Next-Gen Smartphone</h2>
+                            <p>Experience lightning-fast performance and stunning camera quality.</p>
+                        </div>
+                        <div class="brand">MSI</div>
+                        <div class="price">38€ / day</div>
+                        <button class="button">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <script>
+        document.querySelectorAll('label').forEach(label => {
+            label.addEventListener('mousemove', e => {
+                let x = (e.offsetX / label.offsetWidth - 0.5) * 20;
+                let y = (e.offsetY / label.offsetHeight - 0.5) * 20;
+                label.style.transform = `rotateY(${x}deg) rotateX(${-y}deg)`;
+            });
+            label.addEventListener('mouseleave', () => {
+                label.style.transform = "rotateY(0deg) rotateX(0deg)";
+            });
+        });
+    </script>
+</body>
+</html>
