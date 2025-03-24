@@ -1,4 +1,4 @@
-# Fancy Flip Label
+# 3D_Clickable_FlipCards
 
 ## Description
 This project is a visually engaging HTML/CSS/JS component that creates interactive labels with a 3D flip effect. The labels respond to mouse movement, giving a dynamic and modern UI feel.
