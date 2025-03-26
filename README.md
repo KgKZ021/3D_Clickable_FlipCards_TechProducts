@@ -14,11 +14,10 @@ This project is a visually engaging HTML/CSS/JS component that creates interacti
 - HTML5
 - CSS3
 - JavaScript
-- FontAwesome (for potential icons)
-- Faker.js (for text generation)
+- FontAwesome 
 
 ## Usage
 1. Open `index.html` in a browser.
 2. Hover over the labels to see the interactive 3D flip effect.
-3. Move the mouse around each card to experience the dynamic perspective changes.
+3. Click th mouse on each image to experience the dynamic perspective changes.
 
