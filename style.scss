@@ -1,4 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;700&family=Orbitron:wght@400;700&family=Barlow+Condensed:wght@400;700&family=Exo+2:wght@400;700&display=swap');
 $accent-color: #355cc9;
+$font-color : #5c2018;
+$hover-color: #e90303;
+$back-color : #F2F2F2;
+$label-color : #ffffff;
+$info-color : #E0E0E0;
+
 
 *{
     box-sizing: border-box;
@@ -11,18 +18,46 @@ body {
     align-items: center;
 	flex-direction: column;
     height: 100vh;
-    background: linear-gradient(135deg, #355cc9, #e91e63);
-    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, $accent-color, $hover-color);
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center;
+    font-family:'Orbitron' , sans-serif;
+	font-size: medium;
+	min-height: 100vh; 
+    height: auto;
     
 }
 .wrapper {
     display: flex;
 	flex-flow: row wrap;
 	justify-content: center; 
+	margin : 20px 20px;
     
 }
+h2.product {
+	display: inline-block;
+	font-size: 25px;
+	font-weight: bold;
+	color: $label-color;
+	transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  h2.product:hover { 
+	transform: scale(1.2); 
+	color: $font-color; 
+	font-weight: bold;
+  }
 
-img{
+.imgcontainer{
+	width: 100%;        
+    height: 200px;   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ img{
 	max-width: 100%;
 	max-height: 100%;
 	object-fit: contain;
@@ -30,17 +65,13 @@ img{
 	transform-style: preserve-3d;
 	transition:0.3s ease-in-out, transform 0.3s cubic-bezier(0.75, 0, 0.85, 1);
 	
-
-
-	&:hover{
-		
-		transform: translateY(-20px) scale(1.05);
-        
+	&:hover{	
+		transform: translateY(-20px) scale(1.05);  
 	}
-	
 }
 
 .more {
+	display: none;
 	&:checked ~ .content {
 		transform: rotateY(180deg);
 	}
@@ -52,7 +83,6 @@ img{
     perspective: 1000px;
 	overflow: visible;
 	
-
     .content {
         width: 100%;
         height: 100%;
@@ -61,7 +91,6 @@ img{
         transition: transform 0.8s cubic-bezier(0.75, 0, 0.85, 1);
     }
 }
-
 
 .front, .back {
     top: 0;
@@ -84,7 +113,7 @@ img{
 .front {
     background-size: cover;
     background-position: center center; 
-    color: white;
+    color: $back-color;
     font-size: 24px;
     font-weight: bold;
     text-transform: uppercase;
@@ -108,15 +137,8 @@ img{
 		justify-items: center;
 	}
 
-	h2 {
-		grid-row: 2;
-		margin-bottom: 0.3em;
-		text-transform: uppercase;
-		letter-spacing: 3px;
-		color: #fff;
-		font-weight: 500;
-		text-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
-	}
+	
+
 	.rating {
 		grid-row: 3;
 		color: rgba(255, 255, 255, 0.8);
@@ -129,13 +151,14 @@ img{
 	}
 }
 
-
-
 .back {
-    background: white;
+    background: #2C2C2C;
     transform: rotateY(180deg);
-    border: 2px solid rgb(240, 240, 240);
+    border: 2px solid;
+	border-image: linear-gradient(40deg, $font-color, $info-color) 1;
 	backface-visibility: hidden;
+	color: $font-color;
+  	text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
     
     .inner {
 		grid-template-rows: 1fr 2fr 1fr 2fr 14fr 1fr 1fr;
@@ -147,8 +170,9 @@ img{
 	.info {
 		position: relative;
 		display: flex;
+		max-height: fit-content;
 		align-items: center;
-		color: $accent-color;
+		color: $info-color;
 		grid-row: 3;
 		&:not(:first-of-type):before {
 			content: '';
@@ -156,7 +180,7 @@ img{
 			left: -0.9em;
 			height: 18px;
 			width: 1px;
-			background-color: #ccc; 
+			background-color: $label-color; 
 		}
 		span {
 			font-size: 1em;
@@ -164,12 +188,13 @@ img{
 		}
 		i {
 			&:before {
-				background: linear-gradient(40deg, $accent-color, rgb(67, 138, 243));
+				background: linear-gradient(40deg, $info-color, rgb(140, 50, 40));
 
 				-webkit-text-fill-color: transparent;
 				-webkit-background-clip: text;
 			}
 			font-size: 1.2em;
+			margin-bottom: 0.5em;
 		}
 		.icon {
 			margin-left: 0.3em;
@@ -186,21 +211,22 @@ img{
 	.description {
 		grid-row: 5;
 		grid-column: 1/-1;
+		max-height: 140px;
 		font-size: 0.86em;
 		border-radius: 15px;
 		font-weight: 600;
 		line-height: 1.4em;
-		overflow: auto;
-		color: $accent-color;
+		overflow-y: auto;
+		color: $info-color;
 		padding-right: 10px;
 	}
 
 	.brand,
 	.price {
 		font-weight: 600;
-		color: $accent-color;
+		color: $info-color;
 		grid-row: 1;
-		font-size: 0.86em;
+		font-size: 1.5em;
 	}
 
 	.brand {
@@ -219,52 +245,33 @@ img{
 	}
 }
 
-.button {
-	grid-row: -1;
-	text-transform: uppercase;
-	letter-spacing: 1px;
-	font-weight: 600;
-	cursor: pointer;
-	display: block;
-	padding: 0 1.5em;
-	height: 3em;
-	line-height: 2.9em;
-	min-width: 3em;
-	background-color: transparent;
-	border: solid 2px #fff;
-	color: #fff;
-	border-radius: 4px;
+.productbutton {
+    grid-row: -1;
+	position: absolute;
+    bottom: 20px;
+    width: 60px; 
+    height: 60px;
 	text-align: center;
-	left: 50%;
+    cursor: pointer;
 	backface-visibility: hidden;
-	transition: 0.3s ease-in-out;
-	text-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+}
 
-	&:hover {
-		background-color: #fff;
-		box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
-		text-shadow: none;
-		color: $accent-color;
-	}
+.productbutton img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
 
-	&.return {
-		line-height: 3em;
-		color: $accent-color;
-		border-color: $accent-color;
-		text-shadow: none;
-		&:hover {
-			background-color: $accent-color;
-			color: #fff;
-			box-shadow: none;
-		}
-	}
+.productbutton:hover {
+    transform: translateX(-50%) scale(1.1);
 }
 
 ::-webkit-scrollbar {
 	width: 5px;
 }
 ::-webkit-scrollbar-track {
-	background: #f1f1f1;
+	background: $label-color;
 }
 ::-webkit-scrollbar-thumb {
 	background: lighten($accent-color, 20%);
